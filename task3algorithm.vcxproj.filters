@@ -15,11 +15,11 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Task3\Searching.cpp">
-      <Filter>Kaynak Dosyalar</Filter>
+    <ClCompile Include="SearchingApp.cpp">
+      <Filter>Kaynak Dosyaları</Filter>
     </ClCompile>
-    <ClCompile Include="..\Task3\SearchingApp.cpp">
-      <Filter>Kaynak Dosyalar</Filter>
+    <ClCompile Include="Searching.cpp">
+      <Filter>Kaynak Dosyaları</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
