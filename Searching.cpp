@@ -1,23 +1,24 @@
 #include <array>
 #include <vector>
+
 template<typename T, std::size_t N>
-int linearSearch(std::array<T, N>arr, T target) {
+int linearSearch(std::array<T, N> arr, T target) {
     for (std::size_t i = 0; i < N; ++i) {
         if (arr[i] == target) {
-            return i; // Return the index if the target is found
+            return i;
         }
     }
-    return -1; // Return -1 if the target is not found
+    return -1;
 }
 
 template<typename T>
-int linearSearch(std::vector<T>vec, T target) {
+int linearSearch(std::vector<T> vec, T target) {
     for (std::size_t i = 0; i < vec.size(); ++i) {
         if (vec[i] == target) {
-            return i; // Return the index if the target is found
+            return i;
         }
     }
-    return -1; // Return -1 if the target is not found
+    return -1;
 }
 
 template<typename T>
@@ -26,47 +27,86 @@ int binarySearch(std::vector<T> vec, T target) {
     int right = vec.size() - 1;
 
     while (left <= right) {
-        int mid = left + (right - left) / 2; // Avoid potential overflow
+        int mid = left + (right - left) / 2;
         if (vec[mid] == target) {
-            return mid; // Target found
+            return mid;
         }
         else if (vec[mid] < target) {
-            left = mid + 1; // Search in the right half
+            left = mid + 1;
         }
         else {
-            right = mid - 1; // Search in the left half
+            right = mid - 1;
         }
     }
-    return -1; // Target not found
+    return -1;
 }
 
 template<typename T>
 int binarySearchFirst(std::vector<T> vec, T target) {
-    //you need to implement this function using binarySearch function
-    return 1000000;
+    int left = 0;
+    int right = vec.size() - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (vec[mid] == target) {
+            if (mid == 0 || vec[mid - 1] != target) {
+                return mid;
+            }
+            right = mid - 1;
+        }
+        else if (vec[mid] < target) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
 }
 
 template<typename T, std::size_t N>
 int binarySearch(std::array<T, N> arr, T target) {
     int left = 0;
     int right = N - 1;
+
     while (left <= right) {
-        int mid = left + (right - left) / 2; // Avoids potential overflow
+        int mid = left + (right - left) / 2;
         if (arr[mid] == target) {
-            return mid; // Target found
+            return mid;
         }
         else if (arr[mid] < target) {
-            left = mid + 1; // Search in the right half
+            left = mid + 1;
         }
         else {
-            right = mid - 1; // Search in the left half
+            right = mid - 1;
         }
     }
-    return -1; // Target not found
+    return -1;
 }
 
 template<typename T, std::size_t N>
 int binarySearchFirst(std::array<T, N> arr, T target) {
-    //you need to implement this function using binarySearch function
-    return 1000000;
+    int left = 0;
+    int right = N - 1;
+
+    while (left <= right) {
+        int mid = left + (right - left) / 2;
+
+        if (arr[mid] == target) {
+            if (mid == 0 || arr[mid - 1] != target) {
+                return mid;
+            }
+            right = mid - 1;
+        }
+        else if (arr[mid] < target) {
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+
+    return -1;
 }
